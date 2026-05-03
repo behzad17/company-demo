@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NORD MEDIA TECH | Reklam, Marknadsföring, Webb & Digitala Produkter</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --dark: #0f172a;
+      --primary: #2563eb;
+      --accent: #f97316;
+      --soft: #f8fafc;
+      --muted: #64748b;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--dark);
+      background: #ffffff;
+    }
+
+    .navbar {
+      backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.18), transparent 35%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      padding-top: 90px;
+    }
+
+    .hero-card {
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 28px;
+      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+      background: white;
+      overflow: hidden;
+    }
+
+    .section-padding {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-weight: 850;
+      letter-spacing: -0.04em;
+    }
+
+    .text-muted-custom {
+      color: var(--muted);
+    }
+
+    .service-card,
+    .case-card,
+    .product-card,
+    .event-card,
+    .info-card {
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 24px;
+      background: white;
+      box-shadow: 0 14px 45px rgba(15, 23, 42, 0.06);
+      transition: 0.25s ease;
+      height: 100%;
+    }
+
+    .service-card:hover,
+    .case-card:hover,
+    .product-card:hover,
+    .event-card:hover,
+    .info-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+    }
+
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      margin-bottom: 18px;
+    }
+
+    .badge-soft {
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+    }
+
+    .badge-orange {
+      background: rgba(249, 115, 22, 0.12);
+      color: #c2410c;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+    }
+
+    .case-img {
+      min-height: 210px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed, #f97316);
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      border-radius: 34px;
+      overflow: hidden;
+    }
+
+    .footer {
+      background: #020617;
+      color: #cbd5e1;
+    }
+
+    .btn-primary-custom {
+      background: var(--primary);
+      color: white;
+      border-radius: 999px;
+      padding: 12px 24px;
+      font-weight: 800;
+      border: none;
+    }
+
+    .btn-primary-custom:hover {
+      background: #1d4ed8;
+      color: white;
+    }
+
+    .btn-outline-custom {
+      border: 1px solid rgba(15, 23, 42, 0.18);
+      border-radius: 999px;
+      padding: 12px 24px;
+      font-weight: 800;
+      color: var(--dark);
+      background: white;
+    }
+
+    .stats-box {
+      background: var(--soft);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .activity-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .activity-list li {
+      display: flex;
+      align-items: start;
+      gap: 12px;
+      margin-bottom: 14px;
+      color: var(--muted);
+    }
+
+    .activity-list i {
+      color: var(--primary);
+      margin-top: 2px;
+    }
+
+    .mini-tag {
+      display: inline-block;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+        padding: 120px 0 60px;
+      }
+
+      .display-3 {
+        font-size: 2.4rem;
+      }
+
+      .section-padding {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#">
+        <span class="brand-mark">N</span>
+        NORD MEDIA TECH
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="#about">Om oss</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Tjänster</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cases">Case</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Produkter</a></li>
+          <li class="nav-item"><a class="nav-link" href="#events">Event</a></li>
+          <li class="nav-item"><a class="btn btn-primary-custom" href="#contact">Kontakta oss</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="badge-soft mb-3 d-inline-block">Verksamma i Sverige</span>
+          <span class="badge-orange mb-4 d-inline-block">Reklam • Marknadsföring • Webb • Event</span>
+
+          <h1 class="display-3 fw-bold lh-1 mb-4">
+            NORD MEDIA TECH bygger synlighet, digitala lösningar och starkare varumärken.
+          </h1>
+
+          <p class="lead text-muted-custom mb-4">
+            Vi är en svensk verksamhet inom reklam, marknadsföring och kommunikation. Vi kombinerar strategisk rådgivning, webb- och mjukvaruutveckling, grafisk formgivning, digital produktion och event.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#services" class="btn btn-primary-custom">Se våra tjänster</a>
+            <a href="#about" class="btn btn-outline-custom">Läs om verksamheten</a>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-card p-4 p-md-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div>
+                <h5 class="fw-bold mb-1">Digital Growth Preview</h5>
+                <small class="text-muted-custom">Frontend demo för kundpresentation</small>
+              </div>
+              <span class="badge text-bg-success rounded-pill">Sweden</span>
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-6">
+                <div class="stats-box">
+                  <h3 class="fw-bold mb-0">248%</h3>
+                  <small class="text-muted-custom">Ökad synlighet</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stats-box">
+                  <h3 class="fw-bold mb-0">42K</h3>
+                  <small class="text-muted-custom">Digital räckvidd</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-4" style="background:#f8fafc;">
+              <div class="d-flex justify-content-between mb-2"><span>Marknadsföring</span><strong>92%</strong></div>
+              <div class="progress mb-3"><div class="progress-bar" style="width:92%"></div></div>
+
+              <div class="d-flex justify-content-between mb-2"><span>Webb & mjukvara</span><strong>84%</strong></div>
+              <div class="progress mb-3"><div class="progress-bar bg-warning" style="width:84%"></div></div>
+
+              <div class="d-flex justify-content-between mb-2"><span>Digital försäljning</span><strong>88%</strong></div>
+              <div class="progress"><div class="progress-bar bg-success" style="width:88%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="badge-soft mb-3 d-inline-block">Om NORD MEDIA TECH</span>
+          <h2 class="section-title display-5 mb-4">En modern partner för kommunikation, teknik och digital affärsutveckling i Sverige.</h2>
+          <p class="text-muted-custom fs-5">
+            Bolaget bedriver verksamhet inom reklam, marknadsföring och kommunikation, inklusive strategisk rådgivning, webb- och mjukvaruutveckling samt grafisk formgivning.
+          </p>
+          <p class="text-muted-custom">
+            Verksamheten omfattar produktion av digitalt och tryckt material, utveckling och försäljning av egna digitala produkter samt handel, marknadsföring och försäljning av produkter och tjänster via internet och andra digitala plattformar.
+          </p>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="info-card p-4 p-md-5">
+            <h4 class="fw-bold mb-4">Verksamhetsområden</h4>
+            <ul class="activity-list">
+              <li><i class="bi bi-check-circle-fill"></i><span>Reklam, marknadsföring och kommunikation</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Strategisk rådgivning för företag, varumärken och digital tillväxt</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Webb- och mjukvaruutveckling för moderna digitala plattformar</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Grafisk formgivning, visuell identitet och tryckt material</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Digital handel, affiliate-marknadsföring och onlineförsäljning</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Planering, marknadsföring och genomförande av vetenskapliga, kulturella och utbildningsrelaterade evenemang</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section-padding bg-light">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-8">
+          <span class="badge-soft mb-3 d-inline-block">Våra tjänster</span>
+          <h2 class="section-title display-5">Allt kunden behöver för att synas, sälja och växa digitalt.</h2>
+          <p class="text-muted-custom fs-5 mt-3">
+            Från första strategi till färdig webbplats, kampanj, digital produkt eller event.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4">
+            <div class="icon-box"><i class="bi bi-megaphone"></i></div>
+            <h5 class="fw-bold">Reklam & marknadsföring</h5>
+            <p class="text-muted-custom">Kampanjer, annonsering, sociala medier, content och digital kommunikation.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4">
+            <div class="icon-box"><i class="bi bi-compass"></i></div>
+            <h5 class="fw-bold">Strategisk rådgivning</h5>
+            <p class="text-muted-custom">Positionering, målgruppsanalys, varumärkesstrategi och digital tillväxtplan.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4">
+            <div class="icon-box"><i class="bi bi-code-slash"></i></div>
+            <h5 class="fw-bold">Webb & mjukvaruutveckling</h5>
+            <p class="text-muted-custom">Webbplatser, appar, kundportaler, bokningsflöden och digitala system.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4">
+            <div class="icon-box"><i class="bi bi-palette"></i></div>
+            <h5 class="fw-bold">Grafisk design</h5>
+            <p class="text-muted-custom">Logotyp, grafisk profil, social media-design, affischer och tryckmaterial.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4">
+            <div class="icon-box"><i class="bi bi-file-earmark-richtext"></i></div>
+            <h5 class="fw-bold">Digitalt & tryckt material</h5>
+            <p class="text-muted-custom">Produktion av presentationer, broschyrer, annonser, banners och digitala kampanjpaket.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4">
+            <div class="icon-box"><i class="bi bi-bag-check"></i></div>
+            <h5 class="fw-bold">Internetbaserad handel</h5>
+            <p class="text-muted-custom">Försäljning av produkter och tjänster via internet och digitala plattformar.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4">
+            <div class="icon-box"><i class="bi bi-box-seam"></i></div>
+            <h5 class="fw-bold">Digitala produkter</h5>
+            <p class="text-muted-custom">Utveckling och försäljning av egna digitala produkter, mallar, guider och webbtjänster.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4">
+            <div class="icon-box"><i class="bi bi-link-45deg"></i></div>
+            <h5 class="fw-bold">Affiliate-marknadsföring</h5>
+            <p class="text-muted-custom">Samarbeten, rekommendationsbaserad försäljning och digitala partnerkampanjer.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4">
+            <div class="icon-box"><i class="bi bi-calendar-event"></i></div>
+            <h5 class="fw-bold">Event & utbildning</h5>
+            <p class="text-muted-custom">Vetenskapliga, kulturella och utbildningsrelaterade evenemang — från planering till marknadsföring.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge-soft mb-3 d-inline-block">Kompetensområden</span>
+        <h2 class="section-title display-5">Ett brett erbjudande under ett tydligt varumärke.</h2>
+      </div>
+
+      <div class="text-center">
+        <span class="mini-tag">Reklam & marknadsföring</span>
+        <span class="mini-tag">Strategisk rådgivning</span>
+        <span class="mini-tag">Webb och mjukvaruutveckling</span>
+        <span class="mini-tag">Grafisk design</span>
+        <span class="mini-tag">Digitalt material</span>
+        <span class="mini-tag">Tryckt material</span>
+        <span class="mini-tag">Digitala produkter</span>
+        <span class="mini-tag">Handel via internet</span>
+        <span class="mini-tag">Affiliate-marknadsföring</span>
+        <span class="mini-tag">Vetenskapliga event</span>
+        <span class="mini-tag">Kulturella event</span>
+        <span class="mini-tag">Utbildningsevent</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases" class="section-padding bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge-soft mb-3 d-inline-block">Case studies</span>
+        <h2 class="section-title display-5">Exempel på projekt</h2>
+        <p class="text-muted-custom">Fiktiva exempel för kundpresentation.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="case-card p-3">
+            <div class="case-img mb-4"></div>
+            <div class="p-2">
+              <h5 class="fw-bold">Lansering av digital plattform</h5>
+              <p class="text-muted-custom">Strategi, UX, webb, kommunikation och marknadsföringskampanj.</p>
+              <span class="badge text-bg-primary">Webb</span>
+              <span class="badge text-bg-warning">Strategi</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="case-card p-3">
+            <div class="case-img mb-4" style="background:linear-gradient(135deg,#0f766e,#22c55e,#eab308)"></div>
+            <div class="p-2">
+              <h5 class="fw-bold">Kulturellt event i Sverige</h5>
+              <p class="text-muted-custom">Eventidentitet, affischer, annonser, registrering och genomförande.</p>
+              <span class="badge text-bg-success">Event</span>
+              <span class="badge text-bg-dark">Design</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="case-card p-3">
+            <div class="case-img mb-4" style="background:linear-gradient(135deg,#7c2d12,#f97316,#facc15)"></div>
+            <div class="p-2">
+              <h5 class="fw-bold">Affiliate & digital försäljning</h5>
+              <p class="text-muted-custom">Landing page, content strategy, samarbeten och försäljningsflöde online.</p>
+              <span class="badge text-bg-danger">Affiliate</span>
+              <span class="badge text-bg-info">Growth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="section-padding">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <span class="badge-soft mb-3 d-inline-block">Digitala produkter</span>
+          <h2 class="section-title display-5">Egna produkter som kan säljas online.</h2>
+          <p class="text-muted-custom">
+            NORD MEDIA TECH kan utveckla och sälja egna digitala produkter, mallar, webbverktyg, guider, utbildningsmaterial och digitala tjänster via internet och andra digitala plattformar.
+          </p>
+          <a href="#contact" class="btn btn-primary-custom">Diskutera produktidé</a>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="product-card p-4">
+                <i class="bi bi-window-stack fs-1 text-primary"></i>
+                <h5 class="fw-bold mt-3">Webbmallar</h5>
+                <p class="text-muted-custom">Färdiga designmallar och digitala paket för småföretag.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="product-card p-4">
+                <i class="bi bi-mortarboard fs-1 text-primary"></i>
+                <h5 class="fw-bold mt-3">Digitala kurser</h5>
+                <p class="text-muted-custom">Utbildningsmaterial, guider och onlinebaserad kunskap.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="product-card p-4">
+                <i class="bi bi-graph-up-arrow fs-1 text-primary"></i>
+                <h5 class="fw-bold mt-3">Marketing tools</h5>
+                <p class="text-muted-custom">Små digitala verktyg för kampanjer, analys och marknadsföring.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="product-card p-4">
+                <i class="bi bi-shop fs-1 text-primary"></i>
+                <h5 class="fw-bold mt-3">Digital handel</h5>
+                <p class="text-muted-custom">Försäljning av produkter och tjänster via digitala plattformar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" class="section-padding bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge-soft mb-3 d-inline-block">Event & community</span>
+        <h2 class="section-title display-5">Vetenskapliga, kulturella och utbildningsrelaterade event.</h2>
+        <p class="text-muted-custom fs-5">Vi planerar, marknadsför och genomför event med tydlig kommunikation och professionell visuell identitet.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="event-card p-4">
+            <h5 class="fw-bold">Kulturellt event</h5>
+            <p class="text-muted-custom">Koncept, grafisk profil, marknadsföring, materialproduktion och genomförande.</p>
+            <small class="fw-bold text-primary">Kultur & community</small>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="event-card p-4">
+            <h5 class="fw-bold">Vetenskapligt seminarium</h5>
+            <p class="text-muted-custom">Planering av innehåll, talare, registrering, annonsering och digital kommunikation.</p>
+            <small class="fw-bold text-primary">Kunskap & forskning</small>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="event-card p-4">
+            <h5 class="fw-bold">Utbildningsworkshop</h5>
+            <p class="text-muted-custom">Online eller fysisk workshop med material, kampanj och uppföljning.</p>
+            <small class="fw-bold text-primary">Utbildning</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="cta-section p-5">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <h2 class="display-5 fw-bold mb-3">Behöver ditt företag en tydligare digital närvaro?</h2>
+            <p class="lead mb-0 opacity-75">
+              NORD MEDIA TECH hjälper företag i Sverige med strategi, design, webb, kampanjer, digital försäljning och event.
+            </p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a href="#contact" class="btn btn-light rounded-pill px-4 py-3 fw-bold">Boka ett möte</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section-padding bg-light">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5">
+          <span class="badge-soft mb-3 d-inline-block">Kontakt</span>
+          <h2 class="section-title display-5">Boka ett första möte</h2>
+          <p class="text-muted-custom">
+            Den här sektionen är endast frontend-demo. Formuläret visar hur en framtida kontaktsektion kan se ut.
+          </p>
+
+          <div class="mt-4">
+            <p class="mb-2"><i class="bi bi-envelope me-2 text-primary"></i> hello@nordmediatech.se</p>
+            <p class="mb-2"><i class="bi bi-geo-alt me-2 text-primary"></i> Verksamma i Sverige</p>
+            <p class="mb-2"><i class="bi bi-globe me-2 text-primary"></i> Digitala tjänster, produkter och event</p>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <form class="service-card p-4 p-md-5">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Namn</label>
+                <input type="text" class="form-control form-control-lg" placeholder="Ditt namn">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">E-post</label>
+                <input type="email" class="form-control form-control-lg" placeholder="namn@email.se">
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Vad behöver du hjälp med?</label>
+                <select class="form-select form-select-lg">
+                  <option>Reklam & marknadsföring</option>
+                  <option>Strategisk rådgivning</option>
+                  <option>Webb & mjukvaruutveckling</option>
+                  <option>Grafisk design</option>
+                  <option>Digitalt eller tryckt material</option>
+                  <option>Digital produkt</option>
+                  <option>Handel via internet</option>
+                  <option>Affiliate-marknadsföring</option>
+                  <option>Vetenskapligt, kulturellt eller utbildningsrelaterat event</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Meddelande</label>
+                <textarea class="form-control" rows="5" placeholder="Berätta kort om projektet"></textarea>
+              </div>
+
+              <div class="col-12">
+                <button type="button" class="btn btn-primary-custom w-100">Skicka förfrågan</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-6">
+          <h5 class="fw-bold text-white">NORD MEDIA TECH</h5>
+          <p class="mb-0">Reklam, marknadsföring, kommunikation, webb, digitala produkter och event i Sverige.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">© 2026 NORD MEDIA TECH. Frontend demo.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
